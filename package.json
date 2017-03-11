@@ -1,5 +1,5 @@
 {
-  "name": "react-basic",
+  "name": "Boilerplate for a React ES6 project compiled in webpack",
   "version": "1.0.0",
   "description": "Boilerplate to configure basic react project with webpack, babel and sass. ",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/criamico/ReactES6-webpack-boilerplate"
   },
   "dependencies": {
     "react": "^15.4.2",
