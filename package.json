@@ -1,5 +1,5 @@
 {
-  "name": "Boilerplate for a React ES6 project compiled in webpack",
+  "name": "ReactES6-webpack-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate to configure basic react project with webpack, babel and sass. ",
   "main": "index.js",
