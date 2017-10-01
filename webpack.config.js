@@ -49,7 +49,7 @@ module.exports = {
       },
       // serves images in asset folder
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif|svg|mp3)$/i,
         loader: 'file-loader?name=[name].[ext]'
       }
     ]

@@ -41,3 +41,10 @@ jspm_packages
 
 #npm logs
 npm-debug.log
+
+#sass artifacts
+**/.sass-cache/
+**/*.css.map
+
+#dist folder
+dist

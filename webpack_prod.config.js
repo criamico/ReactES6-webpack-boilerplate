@@ -56,7 +56,14 @@ module.exports = {
       // copies images in dist/assets/images folder
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
+        // eslint-disable-line max-len
         loader: 'file-loader?name=/assets/images/[name].[ext]&publicPath='+ BUILD_DIR
+      },
+      // copies sounds in dist/assets/media folder
+      {
+        test: /\.(mp3)$/i,
+        // eslint-disable-line max-len
+        loader: 'file-loader?name=/assets/media/[name].[ext]&publicPath='+ BUILD_DIR
       }
     ]
   },
