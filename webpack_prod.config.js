@@ -43,7 +43,7 @@ module.exports = {
         test : /\.jsx?/,
         include : SRC_DIR,
         exclude: /node_modules/,
-        loader : ['react-hot-loader', 'babel-loader']
+        use : ['react-hot-loader', 'babel-loader']
       },
       // compiles scss files
       {

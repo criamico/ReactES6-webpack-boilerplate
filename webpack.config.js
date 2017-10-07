@@ -21,13 +21,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   module : {
-    loaders : [
-      // enables babel and hot reloading
+    // loaders enable babel and hot reloading
+    rules : [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
         exclude: /node_modules/,
-        loader : ['react-hot-loader', 'babel-loader']
+        use : ['react-hot-loader', 'babel-loader']
+        // same as loaders, for multiple loaders
       },
       // add linter step before compilation (needs .eslintrc file)
       {
@@ -38,14 +39,14 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
         options: {
-             failOnWarning: false,
-             failOnError: true
-           }
+          failOnWarning: false,
+          failOnError: true
+        }
       },
       // compiles scss files
       {
         test: /\.scss$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       // serves images in asset folder
       {
