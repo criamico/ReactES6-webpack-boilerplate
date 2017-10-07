@@ -27,8 +27,9 @@ module.exports = {
         test : /\.jsx?/,
         include : SRC_DIR,
         exclude: /node_modules/,
-        use : ['react-hot-loader', 'babel-loader']
-        // same as loaders, for multiple loaders
+        loader: 'babel-loader'
+        // use : ['react-hot-loader', 'babel-loader']
+        // react-hot-loader deactivated, it doesn't work with react 16 so far
       },
       // add linter step before compilation (needs .eslintrc file)
       {
@@ -47,6 +48,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+        // same as loaders, for multiple loaders
       },
       // serves images in asset folder
       {

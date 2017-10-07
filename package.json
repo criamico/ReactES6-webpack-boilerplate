@@ -16,8 +16,8 @@
     "url": "https://github.com/criamico/ReactES6-webpack-boilerplate"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "webpack": "^2.2.1"
   },
   "devDependencies": {
