@@ -11,6 +11,7 @@ class App extends React.Component {
         <li>ES6 React transpiled via Babel</li>
         <li>Sass module enabled</li>
         <li>ES6/JSx linters enabled</li>
+        <li>Support to Jasmine tests enabled </li>
         <li>
           Live reloading with webpack-dev-server in Dev mode
         </li>
@@ -21,7 +22,7 @@ class App extends React.Component {
       </ul>
       <h2>...Happy coding!</h2>
     </div>
-   );
+    );
   }
 }
 export default App;

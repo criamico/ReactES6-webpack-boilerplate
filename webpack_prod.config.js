@@ -29,6 +29,12 @@ var UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
   }
 });
 
+var DefinePlugin = new webpack.DefinePlugin({
+  'process.env': {
+    'NODE_ENV': JSON.stringify('production')
+  }
+});
+
 module.exports = {
   entry: {
     javascript: SRC_DIR + '/app.js'
@@ -69,6 +75,7 @@ module.exports = {
     ]
   },
   plugins: [
+    DefinePlugin,
     ExtractTextPluginConfig,
     HTMLWebpackPluginConfig,
     UglifyJsPluginConfig

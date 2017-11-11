@@ -47,4 +47,4 @@ npm-debug.log
 **/*.css.map
 
 #dist folder
-dist
+dist/

@@ -5,6 +5,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var SRC_DIR = path.resolve(__dirname, 'src');
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 
+// Define environment
+var DefinePlugin = new webpack.DefinePlugin({
+  'process.env': {
+    'NODE_ENV': JSON.stringify('development')
+  }
+});
+
 // Inject js file to index.html
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
@@ -57,5 +64,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  devtool: 'eval',
+  plugins: [DefinePlugin, HTMLWebpackPluginConfig]
 };
