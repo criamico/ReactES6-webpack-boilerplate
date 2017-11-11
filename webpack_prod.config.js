@@ -6,6 +6,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var SRC_DIR = path.resolve(__dirname, 'src');
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 
+// Define environment
+var DefinePlugin = new webpack.DefinePlugin({
+  'process.env': {
+    'NODE_ENV': JSON.stringify('production')
+  }
+});
 
 // copy compiled css file to dist folder
 var ExtractTextPluginConfig = new ExtractTextPlugin({
@@ -26,12 +32,6 @@ var UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
   minimize: true,
   compress: {
     warnings: false
-  }
-});
-
-var DefinePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    'NODE_ENV': JSON.stringify('production')
   }
 });
 
