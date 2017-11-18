@@ -40,7 +40,6 @@
     "jasmine-enzyme": "^4.0.1",
     "node-sass": "^4.6.0",
     "prop-types": "^15.5.10",
-    "react-dom": "^16.1.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.13.2",
     "webpack": "^2.7.0",

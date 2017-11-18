@@ -7,9 +7,7 @@ var BUILD_DIR = path.resolve(__dirname, 'dist');
 
 // Define environment
 var DefinePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    'NODE_ENV': JSON.stringify('development')
-  }
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 });
 
 // Inject js file to index.html
@@ -27,6 +25,8 @@ module.exports = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  // enable fast sourcemaps (with generated code)
+  devtool: 'eval',
   module : {
     // loaders enable babel and hot reloading
     rules : [
@@ -64,6 +64,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
   plugins: [DefinePlugin, HTMLWebpackPluginConfig]
 };

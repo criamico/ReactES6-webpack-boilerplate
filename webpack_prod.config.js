@@ -8,9 +8,7 @@ var BUILD_DIR = path.resolve(__dirname, 'dist');
 
 // Define environment
 var DefinePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    'NODE_ENV': JSON.stringify('production')
-  }
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
 });
 
 // copy compiled css file to dist folder
@@ -43,6 +41,8 @@ module.exports = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  // enable slower sourcemaps (with original code)
+  devtool: 'source-map',
   module : {
     loaders : [
       {
