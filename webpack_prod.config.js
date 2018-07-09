@@ -1,36 +1,35 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-var SRC_DIR = path.resolve(__dirname, 'src');
-var BUILD_DIR = path.resolve(__dirname, 'dist');
+const SRC_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'dist');
 
 // Define environment
-var DefinePlugin = new webpack.DefinePlugin({
+const DefinePlugin = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
 });
 
 // copy compiled css file to dist folder
-var ExtractTextPluginConfig = new ExtractTextPlugin({
-  filename: 'assets/styles/main.css',
-  publicPath: BUILD_DIR + 'dist/assets/styles/',
-  allChunks: true
+const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
+  filename: 'assets/styles/main.css'
 });
 
 // Inject js file to index.html
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
   filename: 'index.html',
   inject: 'body'
 });
 
 // minify bundle.js for production
-var UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
-  minimize: true,
-  compress: {
-    warnings: false
-  }
+const UglifyJsPluginConfig = new UglifyJsPlugin({
+  test: /\.js($|\?)/i,
+  cache:true,
+  parallel:true,
+  sourceMap: true
 });
 
 module.exports = {
@@ -43,8 +42,9 @@ module.exports = {
   },
   // enable slower sourcemaps (with original code)
   devtool: 'source-map',
+  mode: 'production',
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
@@ -55,10 +55,11 @@ module.exports = {
       // compiles scss files
       {
         test: /\.scss$/,
-        loaders: ExtractTextPluginConfig.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       },
       // copies images in dist/assets/images folder
       {
@@ -74,10 +75,14 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimizer: [
+      UglifyJsPluginConfig
+    ]
+  },
   plugins: [
     DefinePlugin,
-    ExtractTextPluginConfig,
     HTMLWebpackPluginConfig,
-    UglifyJsPluginConfig
+    MiniCssExtractPluginConfig
   ]
 };

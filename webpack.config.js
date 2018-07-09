@@ -1,17 +1,17 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var SRC_DIR = path.resolve(__dirname, 'src');
-var BUILD_DIR = path.resolve(__dirname, 'dist');
+const SRC_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'dist');
 
 // Define environment
-var DefinePlugin = new webpack.DefinePlugin({
+const DefinePlugin = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 });
 
 // Inject js file to index.html
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
   filename: 'index.html',
   inject: 'body'
@@ -27,6 +27,7 @@ module.exports = {
   },
   // enable fast sourcemaps (with generated code)
   devtool: 'eval',
+  mode: 'development',
   module : {
     // loaders enable babel and hot reloading
     rules : [
