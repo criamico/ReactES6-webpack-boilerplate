@@ -7,10 +7,14 @@ Boilerplate for a React ES6 project compiled in webpack. Features:
 - ES6/JSx linters enabled
 - Live reloading with webpack-dev-server in Dev mode
 - Support for tests with Jasmine enabled
-- Webpack Production configuration generates index.hmtl, bundle.js and main.css already minified, deploys assets in /dist folder
+- Webpack Production configuration generates already minified assets and deploys in /dist folder
+- Test enabled
 
 ## Installation and use
-Grab the npm version specified in .nvmrc:
+Currently used versions of node/npm:
+6.10.0/6.1.0
+
+Grab the npm version specified in .nvmrc: (only works on linux/mac OS)
 `nvm use`
 
 Install npm dependencies:

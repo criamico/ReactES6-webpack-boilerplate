@@ -3,7 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin =
+// require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'dist');
@@ -23,14 +24,6 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
   filename: 'index.html',
   inject: 'body'
-});
-
-// minify bundle.js for production
-const UglifyJsPluginConfig = new UglifyJsPlugin({
-  test: /\.js($|\?)/i,
-  cache:true,
-  parallel:true,
-  sourceMap: true
 });
 
 module.exports = {
@@ -77,9 +70,6 @@ module.exports = {
     ]
   },
   optimization: {
-    minimizer: [
-      UglifyJsPluginConfig
-    ],
     // code splitting
     runtimeChunk: {
       name: 'vendor'
@@ -94,12 +84,25 @@ module.exports = {
           minSize: 1
         }
       }
-    }
+    },
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js($|\?)/i,
+        cache:true,
+        parallel:true,
+        sourceMap: true,
+        uglifyOptions: {
+          compress: false,
+          ecma: 6
+        }
+      })
+    ]
   },
   plugins: [
     DefinePlugin,
     HTMLWebpackPluginConfig,
-    MiniCssExtractPluginConfig,
+    MiniCssExtractPluginConfig
     // new BundleAnalyzerPlugin()
   ]
 };
