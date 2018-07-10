@@ -1,7 +1,7 @@
 {
   "name": "ReactES6-webpack-boilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate to configure basic react project with webpack, babel and sass. ",
+  "description": "Boilerplate to configure basic react project with webpack, babel and sass.",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist/",
@@ -43,6 +43,7 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.15.1",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
     "webpack-uglify-js-plugin": "^1.1.9"

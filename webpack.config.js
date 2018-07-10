@@ -19,11 +19,11 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: {
-    javascript: SRC_DIR + '/app.js'
+    bundle: SRC_DIR + '/app.js'
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   // enable fast sourcemaps (with generated code)
   devtool: 'eval',
@@ -65,5 +65,26 @@ module.exports = {
       }
     ]
   },
-  plugins: [DefinePlugin, HTMLWebpackPluginConfig]
+  plugins: [
+    DefinePlugin,
+    HTMLWebpackPluginConfig
+  ],
+  // Code splitting
+  optimization: {
+    minimize: false,
+    runtimeChunk: {
+      name: 'vendor'
+    },
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'initial',
+          minSize: 1
+        }
+      }
+    }
+  }
 };

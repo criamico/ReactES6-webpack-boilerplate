@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'dist');
@@ -34,11 +35,11 @@ const UglifyJsPluginConfig = new UglifyJsPlugin({
 
 module.exports = {
   entry: {
-    javascript: SRC_DIR + '/app.js'
+    bundle: SRC_DIR + '/app.js'
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   // enable slower sourcemaps (with original code)
   devtool: 'source-map',
@@ -78,11 +79,27 @@ module.exports = {
   optimization: {
     minimizer: [
       UglifyJsPluginConfig
-    ]
+    ],
+    // code splitting
+    runtimeChunk: {
+      name: 'vendor'
+    },
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'initial',
+          minSize: 1
+        }
+      }
+    }
   },
   plugins: [
     DefinePlugin,
     HTMLWebpackPluginConfig,
-    MiniCssExtractPluginConfig
+    MiniCssExtractPluginConfig,
+    // new BundleAnalyzerPlugin()
   ]
 };
