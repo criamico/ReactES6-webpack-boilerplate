@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = function(config){
   config.set({
@@ -11,9 +12,8 @@ module.exports = function(config){
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'spec/helpers/babel-setup.js' },
       { pattern: 'spec/helpers/enzyme_setup.js' },
-      { pattern: 'src/**/*.+(js|jsx)' },
+      { pattern: 'spec/helpers/global_setup.js' },
       { pattern: 'spec/**/*.+(js|jsx)' }
     ],
 
@@ -24,9 +24,8 @@ module.exports = function(config){
     // available preprocessors:
     // https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'spec/helpers/babel-setup.js': [ 'webpack' ],
       'spec/helpers/enzyme_setup.js': [ 'webpack' ],
-      'src/**/*.+(js|jsx)': [ 'webpack' ],
+      'spec/helpers/global_setup.js': [ 'webpack' ],
       'spec/**/*.+(js|jsx)': [ 'webpack' ]
     },
 
@@ -71,7 +70,6 @@ module.exports = function(config){
       require('karma-jasmine-html-reporter')
       // require('karma-coverage')
     ],
-
     // webpack options
     webpack: {
       mode:'development',
@@ -86,7 +84,7 @@ module.exports = function(config){
             test: /\.js(x)$/,
             loader: 'babel-loader',
             exclude: [
-              /node_modules/,
+              // /node_modules/,
               'react/addons',
               'react/lib/ExecutionEnvironment',
               'react/lib/ReactContext'
@@ -96,8 +94,8 @@ module.exports = function(config){
           {
             test: /\.scss/,
             exclude: /node_modules/,
-            loaders: ['raw-loader', 'sass-loader']
-            // use: 'null-loader'
+            // loaders: ['raw-loader', 'sass-loader']
+            use: 'null-loader'
           },
           // ignore other imported assets:
           {

@@ -8,7 +8,7 @@
     "build": "./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js --progress --profile --colors",
     "clean-build": "npm run clean && ./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js",
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --watch --colors --inline",
-    "test": "karma start --auto-watch --display-error-details",
+    "test": "karma start --auto-watch",
     "test-ci": "karma start --singleRun --browsers ChromeHeadless --colors false",
     "lint": "esw webpack.config.* src tools --color"
   },
@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

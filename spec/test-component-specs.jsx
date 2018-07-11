@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TestComponent from '../src/components/test-component';
+import './helpers/enzyme_setup';
 
 describe('Test component', () => {
   // tests
