@@ -1,14 +1,15 @@
 # ReactES6-webpack-boilerplate
 
 Boilerplate for a React ES6 project compiled in webpack. Features:
-- React 16
+- React 16 / Webpack 4
 - ES6 transpiled via Babel
 - Sass module enabled
 - ES6/JSx linters enabled
+- Code splitting enabled
 - Live reloading with webpack-dev-server in Dev mode
-- Support for tests with Jasmine enabled
-- Webpack Production configuration generates already minified assets and deploys in /dist folder
-- Test enabled
+- Tests with Karma + Webpack + Enzyme + Jasmine
+- Webpack production configuration generates already minified assets and deploys in /dist folder
+
 
 ## Installation and use
 Currently used versions of node/npm:
@@ -17,25 +18,20 @@ Currently used versions of node/npm:
 Grab the npm version specified in .nvmrc: (only works on linux/mac OS)
 `nvm use`
 
-Install npm dependencies:
+- Install npm dependencies:
+`npm i`
 
-`npm install`
-
-To run in dev mode:
-
+- To run in dev mode (dev server runs on `http://localhost:8080/`):
 `npm run dev`
 
-This enables the server to run on `http://localhost:8080/`.
-
-When a file changes the server automatically reloads the page on the browser.
-
-Since in dev mode ESLint is enabled, warnings are printed on the console but errors stop the compilation.
-
-To generate the production build:
-
+- To generate the production build:
 `npm build`
-bundle.js and main.css are minified and deployed in /prod folder
 
-To run tests:
-
+- To run tests with Karma (debug on `http://localhost:9876/`)
 `npm run test`
+
+- To execute tests once (continuous integration mode):
+`npm run test-ci`
+
+- To execute a web server on the local production build (for testing purpose, runs on `http://localhost:8000/`):
+`npm run http-server`

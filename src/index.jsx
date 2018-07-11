@@ -1,7 +1,7 @@
 import React from 'react';
 import TestComponent from './components/test-component.jsx';
 
-export class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="example">
@@ -25,3 +25,4 @@ export class App extends React.Component {
     );
   }
 }
+export default App;

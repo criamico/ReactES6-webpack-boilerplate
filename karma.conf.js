@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const path = require('path');
 
 module.exports = function(config){
   config.set({
@@ -24,15 +23,13 @@ module.exports = function(config){
     // available preprocessors:
     // https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec/helpers/enzyme_setup.js': [ 'webpack' ],
-      'spec/helpers/global_setup.js': [ 'webpack' ],
-      'spec/**/*.+(js|jsx)': [ 'webpack' ]
+      'spec/**/*.+(js|jsx)': [ 'webpack', 'sourcemap' ]
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'dots', 'kjhtml' ],
+    reporters: [ 'dots', 'kjhtml'],
 
     // web server port
     port: 9876,
@@ -67,8 +64,9 @@ module.exports = function(config){
       require('karma-chrome-launcher'),
       require('karma-webpack'),
       require('karma-jasmine'),
-      require('karma-jasmine-html-reporter')
-      // require('karma-coverage')
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage'),
+      require('karma-sourcemap-loader')
     ],
     // webpack options
     webpack: {
