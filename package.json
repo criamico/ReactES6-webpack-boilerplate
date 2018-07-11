@@ -9,7 +9,8 @@
     "clean-build": "npm run clean && ./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js",
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline",
     "lint": "esw webpack.config.* src tools --color",
-    "test": "babel-node spec/support/run.js"
+    "test": "babel-node spec/support/run.js",
+    "tests": "karma start --auto-watch"
   },
   "author": "criamico",
   "license": "ISC",
@@ -37,6 +38,12 @@
     "html-webpack-plugin": "^3.2.0",
     "jasmine": "^3.1.0",
     "jasmine-enzyme": "^6.0.2",
+    "karma": "^2.0.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
     "npm-check": "^5.7.1",

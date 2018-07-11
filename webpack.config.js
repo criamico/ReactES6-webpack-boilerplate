@@ -29,8 +29,7 @@ module.exports = {
   devtool: 'eval',
   mode: 'development',
   module : {
-    // loaders enable babel and hot reloading
-    rules : [
+    rules: [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
