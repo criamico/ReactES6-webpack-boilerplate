@@ -11,8 +11,7 @@ module.exports = function(config){
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'node_modules/jasmine-core/lib/jasmine-core.js' },
-      { pattern: 'spec/helpers/jasmine_setup.js' },
+      { pattern: 'spec/helpers/babel-setup.js' },
       { pattern: 'spec/helpers/enzyme_setup.js' },
       { pattern: 'src/**/*.+(js|jsx)' },
       { pattern: 'spec/**/*.+(js|jsx)' }
@@ -25,6 +24,9 @@ module.exports = function(config){
     // available preprocessors:
     // https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      // 'spec/helpers/babel-setup.js': [ 'webpack' ],
+      'spec/helpers/enzyme_setup.js': [ 'webpack' ],
+      'src/**/*.+(js|jsx)': [ 'webpack' ],
       'spec/**/*.+(js|jsx)': [ 'webpack' ]
     },
 
@@ -74,13 +76,33 @@ module.exports = function(config){
     webpack: {
       mode:'development',
       devtool: 'inline-source-map',
-      target: 'web',
+      // target: 'web',
+      resolve: {
+        extensions: ['.js', '.jsx']
+      },
       module: {
         rules: [
           {
             test: /\.js(x)$/,
             loader: 'babel-loader',
-            exclude: /node_modules/
+            exclude: [
+              /node_modules/,
+              'react/addons',
+              'react/lib/ExecutionEnvironment',
+              'react/lib/ReactContext'
+            ]
+          },
+          // ignore the imported styles:
+          {
+            test: /\.scss/,
+            exclude: /node_modules/,
+            loaders: ['raw-loader', 'sass-loader']
+            // use: 'null-loader'
+          },
+          // ignore other imported assets:
+          {
+            test: /\.(jpe?g|png|gif|svg|mp3)$/i,
+            use: 'null-loader'
           }
         ]
       },
@@ -91,8 +113,5 @@ module.exports = function(config){
         child_process: 'empty'
       }
     }
-    // webpackServer: {
-    //   noInfo: true
-    // }
   });
 };

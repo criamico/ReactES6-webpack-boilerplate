@@ -1,11 +1,11 @@
 import React from 'react';
-import TestComponent from './components/TestComponent.jsx';
+import TestComponent from './components/test-component.jsx';
 
-class App extends React.Component {
+export class App extends React.Component {
   render() {
     return (
-    <div className="example">
-      <h1>ReactES6-webpack-boilerplate</h1>
+      <div className="example">
+        <h1>ReactES6-webpack-boilerplate</h1>
         <TestComponent />
         <ul>
           <li>ES6 React transpiled via Babel</li>
@@ -21,8 +21,7 @@ class App extends React.Component {
           </li>
         </ul>
         <h2>...Happy coding!</h2>
-    </div>
+      </div>
     );
   }
 }
-export default App;

@@ -54,13 +54,15 @@ module.exports = {
       // compiles scss files
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /node_modules/
         // same as loaders, for multiple loaders
       },
       // serves images in asset folder
       {
         test: /\.(jpe?g|png|gif|svg|mp3)$/i,
-        loader: 'file-loader?name=[name].[ext]'
+        loader: 'file-loader?name=[name].[ext]',
+        exclude: /node_modules/
       }
     ]
   },
