@@ -14,7 +14,8 @@ const DefinePlugin = new webpack.DefinePlugin({
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: false,
+  hash: true
 });
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   // enable fast sourcemaps (with generated code)
   devtool: 'eval',

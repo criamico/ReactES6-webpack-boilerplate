@@ -16,14 +16,15 @@ const DefinePlugin = new webpack.DefinePlugin({
 
 // copy compiled css file to dist folder
 const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
-  filename: 'assets/styles/main.css'
+  filename: 'assets/styles/main.[contenthash].css'
 });
 
 // Inject js file to index.html
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: SRC_DIR + '/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: false,
+  hash: true
 });
 
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   // enable slower sourcemaps (with original code)
   devtool: 'source-map',
