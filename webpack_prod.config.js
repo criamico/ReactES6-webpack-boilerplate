@@ -8,6 +8,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'dist');
+// const ASSETS_DIR = path.resolve(__dirname, 'dist');
 
 // Define environment
 const DefinePlugin = new webpack.DefinePlugin({
@@ -59,15 +60,19 @@ module.exports = {
       // copies images in dist/assets/images folder
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        // eslint-disable-line max-len
-        loader: 'file-loader?name=/assets/images/[name].[ext]&publicPath='+ BUILD_DIR,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/images/[name].[ext]'
+        },
         exclude: /node_modules/
       },
       // copies sounds in dist/assets/media folder
       {
         test: /\.(mp3)$/i,
-        // eslint-disable-line max-len
-        loader: 'file-loader?name=/assets/media/[name].[ext]&publicPath='+ BUILD_DIR,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/media/[name].[ext]'
+        },
         exclude: /node_modules/
       }
     ]
