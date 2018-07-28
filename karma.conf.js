@@ -65,8 +65,8 @@ module.exports = function(config){
       require('karma-webpack'),
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
       require('karma-sourcemap-loader')
+      // require('karma-coverage'),
     ],
     // webpack options
     webpack: {
