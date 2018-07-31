@@ -7,7 +7,7 @@
     "clean": "rm -rf dist/",
     "build": "./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js --progress --profile --colors",
     "clean-build": "npm run clean && ./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js",
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --watch --colors --inline",
+    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --watch --hot --colors --inline",
     "test": "karma start --auto-watch",
     "test-ci": "karma start --singleRun --browsers ChromeHeadless --colors false",
     "lint": "esw webpack.config.* src tools --color",
@@ -24,6 +24,7 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.0.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.6",
@@ -54,6 +55,7 @@
     "node-sass": "^4.9.2",
     "npm-check": "^5.7.1",
     "null-loader": "^0.1.1",
+    "postcss-loader": "^2.1.6",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",

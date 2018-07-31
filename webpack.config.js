@@ -24,11 +24,15 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[hash].js'
   },
   // enable fast sourcemaps (with generated code)
   devtool: 'eval',
   mode: 'development',
+  devServer: {
+    contentBase: BUILD_DIR,
+    hot: true
+  },
   module : {
     rules: [
       {
@@ -36,8 +40,6 @@ module.exports = {
         include : SRC_DIR,
         exclude: /node_modules/,
         loader: 'babel-loader'
-        // use : ['react-hot-loader', 'babel-loader']
-        // react-hot-loader deactivated, it doesn't work with react 16 so far
       },
       // add linter step before compilation (needs .eslintrc file)
       {
@@ -55,7 +57,21 @@ module.exports = {
       // compiles scss files
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              sourcemap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourcemap: true
+            }
+          }
+        ],
         exclude: /node_modules/
         // same as loaders, for multiple loaders
       },
@@ -69,7 +85,8 @@ module.exports = {
   },
   plugins: [
     DefinePlugin,
-    HTMLWebpackPluginConfig
+    HTMLWebpackPluginConfig,
+    new webpack.HotModuleReplacementPlugin()
   ],
   // Code splitting
   optimization: {
