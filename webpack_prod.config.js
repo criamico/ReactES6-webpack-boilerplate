@@ -61,9 +61,9 @@ module.exports = {
             }
           },
           { loader: 'postcss-loader',
-            options: {
-              plugins: () => autoprefixer()
-            }
+          	config: {
+          		path: __dirname + '/postcss.config.js'
+          	}
           },
           {
             loader: 'sass-loader',

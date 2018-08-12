@@ -1,15 +1,20 @@
 {
   "name": "ReactES6-webpack-boilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate to configure basic react project with webpack, babel and sass.",
+  "description":
+    "Boilerplate to configure basic react project with webpack, babel and sass.",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist/",
-    "build": "./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js --progress --profile --colors",
-    "clean-build": "npm run clean && ./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js",
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --watch --hot --colors --inline",
+    "build":
+      "./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js --progress --profile --colors",
+    "clean-build":
+      "npm run clean && ./node_modules/webpack/bin/webpack.js -p  --config webpack_prod.config.js",
+    "dev":
+      "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --watch --hot --colors --inline",
     "test": "karma start --auto-watch",
-    "test-ci": "karma start --singleRun --browsers ChromeHeadless --colors false",
+    "test-ci":
+      "karma start --singleRun --browsers ChromeHeadless --colors false",
     "lint": "esw webpack.config.* src tools --color",
     "http-server": "http-server dist -p 8000"
   },
@@ -20,11 +25,11 @@
     "url": "https://github.com/criamico/ReactES6-webpack-boilerplate"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
-    "autoprefixer": "^9.0.2",
+    "autoprefixer": "^9.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.6",
@@ -34,17 +39,17 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
-    "enzyme": "^3.1.1",
-    "enzyme-adapter-react-16": "^1.0.4",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "0.11.1",
-    "jasmine": "^3.1.0",
-    "jasmine-enzyme": "^6.0.2",
-    "karma": "^2.0.5",
+    "jasmine": "^3.2.0",
+    "jasmine-enzyme": "^6.0.3",
+    "karma": "^3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.1.2",
@@ -52,14 +57,14 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.1",
-    "node-sass": "^4.9.2",
-    "npm-check": "^5.7.1",
+    "node-sass": "^4.9.3",
+    "npm-check": "^5.8.0",
     "null-loader": "^0.1.1",
-    "postcss-loader": "^2.1.6",
-    "sass-loader": "^7.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^4.16.3",
+    "webpack": "^4.16.5",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"

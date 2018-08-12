@@ -9,6 +9,6 @@ describe('Test component', () => {
 
   it('renders', () => {
     console.log(comp.debug());
-    expect(comp.name()).toBe('div');
+    expect(comp.name()).toBe('Fragment');
   });
 });
