@@ -4,6 +4,7 @@ import imgSrc from '../assets/images/react-logo.png';
 class TestComponent extends React.Component {
   constructor(props) {
     super(props);
+    TestComponent.displayName = 'TestComponent';
   }
 
   render() {
