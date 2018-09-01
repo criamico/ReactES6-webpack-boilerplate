@@ -10,6 +10,14 @@
       "jsx": true
     }
   },
+   "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.2",
+    },
+    "propWrapperFunctions": [ "forbidExtraProps" ]
+  },
   "env": {
     "es6":     true,
     "browser": true,
@@ -62,15 +70,25 @@
     "no-const-assign": 2,
     "no-var": 1,
     # react
+    "react/button-has-type": 1,
+    "react/default-props-match-prop-types": 1,
     "react/display-name": 1,
+    "react/jsx-closing-tag-location": 1,
+    "react/no-danger": 1,
     "react/no-deprecated": 1,
-    "react/no-typos": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-direct-mutation-state": 1,
     "react/no-string-refs": 1,
+    "react/no-this-in-sfc": 1,
+    "react/no-typos": 1,
     "react/no-unsafe": 1,
     "react/no-unused-prop-types": 1,
     "react/no-will-update-set-state": 1,
     "react/prefer-es6-class": 1,
     "react/prop-types": 1,
-    "react/react-in-jsx-scope": 1
+    "react/react-in-jsx-scope": 1,
+    "react/self-closing-comp": 1,
+    "react/void-dom-elements-no-children": 1
   }
 }
