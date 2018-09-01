@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "react"
+    "react",
+    "jsx-a11y"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -26,7 +27,8 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "rules": {
     // first argument: 0 - silent, 1 - warning, 2 - error
