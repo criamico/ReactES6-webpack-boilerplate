@@ -1,5 +1,6 @@
 import React from 'react';
 import TestComponent from './test-component.jsx';
+import './main.scss';
 
 class App extends React.Component {
   render() {
