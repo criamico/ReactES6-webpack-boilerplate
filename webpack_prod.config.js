@@ -90,6 +90,15 @@ module.exports = {
           name: 'assets/media/[name].[ext]'
         },
         exclude: /node_modules/
+      },
+      // copies fonts in dist/assets/fonts folder
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/i,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/fonts/[name].[ext]'
+        },
+        exclude: /node_modules/
       }
     ]
   },

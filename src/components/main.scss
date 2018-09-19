@@ -1,7 +1,16 @@
 $main-color: red;
 
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('../assets/fonts/Roboto-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .example {
   h1 {
+    font-family: 'Roboto-Medium';
     color: $main-color;
   }
 

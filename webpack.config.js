@@ -80,6 +80,11 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg|mp3)$/i,
         loader: 'file-loader?name=[name].[ext]',
         exclude: /node_modules/
+      },
+      // serves fonts from asset folder
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
       }
     ]
   },
