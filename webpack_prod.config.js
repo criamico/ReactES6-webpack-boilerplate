@@ -61,8 +61,9 @@ module.exports = {
             }
           },
           { loader: 'postcss-loader',
-            options: {
-              path: __dirname + '/postcss.config.js'
+            query: {
+              sourceMap: 'inline',
+              parser: 'postcss-scss'
             }
           },
           {
@@ -135,7 +136,8 @@ module.exports = {
   plugins: [
     DefinePlugin,
     HTMLWebpackPluginConfig,
-    MiniCssExtractPluginConfig
+    MiniCssExtractPluginConfig,
+    autoprefixer
     // new BundleAnalyzerPlugin()
   ]
 };
